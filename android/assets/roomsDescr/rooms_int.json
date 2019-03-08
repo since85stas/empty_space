@@ -4,12 +4,23 @@
       "name": "крио комната",
       "descr": "simple cryogenic room",
       "enterText": "You are waking up in halfdarkness...",
+      "darkness": 40,
       "action": [
         {
-          "descr": "descr11"
+          "descr": "Продолжить движение",
+          "actionType":[ "go"],
+          "result": [" "],
+          "conditionType": ["common"],
+          "condition": [0],
+          "chance"   : 1.0
         },
         {
-          "descr": "descr12"
+          "descr": "Осмотреть ближайшие крио-капсулы",
+          "actionType":[ "sanity","enemy"],
+          "result": ["-15","human"],
+          "conditionType": ["common"],
+          "condition": [0],
+          "chance"   : 1.0
         }
       ]
     },
@@ -17,12 +28,23 @@
       "name": "corridor",
       "descr": "simple corridor",
       "enterText": "You are waking in the corridor...",
+      "darkness" : 50,
       "action": [
         {
-          "descr": "descr21"
+          "descr": "Продолжить движение",
+          "actionType":[ "go"],
+          "result": [" "],
+          "conditionType": ["common"],
+          "condition": [0],
+          "chance"   : 1.0
         },
         {
-          "descr": "descr22"
+          "descr": "Перевести дух",
+          "actionType":[ "sanity"],
+          "result": ["+small"],
+          "conditionType": ["light"],
+          "condition": [-70],
+          "chance"   : 1.0
         }
       ]
     }

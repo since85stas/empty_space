@@ -4,8 +4,8 @@ public class RoomDescr {
     public String name;
     public String descr;
     public String enterText;
+    public int darkness;
     public Action[] action;
-
 
     public RoomDescr () {
     }
@@ -17,11 +17,12 @@ public class RoomDescr {
     }
 
     public static class Action {
-        public String descr;
-//        public int actionType;
-//        public int result;
-//        public int conditionType;
-//        public int condition;
+        public String descr;   // текст условия
+        public String actionType[]; // маркер для типа условия
+        public String result[];     // результат выбора, если не важен то пробел " "
+        public String conditionType[]; // маркер для типа условия
+        public int condition[];     // критерий для срабатывания условия, если нет то 0
+        public float chance; // вероятность срабатывания условия от 0 до 1
 
         public Action(){
         }

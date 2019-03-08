@@ -2,31 +2,39 @@ package ru.batura.game.space.params;
 
 public final class ActionConst {
     // типы результатов за выбор действия
-    public static final int ACTION_RESULT_TYPE_HP = -22;
-    public static final int RESULT_HP_SMALL = 10;
-    public static final int RESULT_HP_NORM = 25;
-    public static final int RESULT_HP_HIGH = 40;
+    public static final String ACTION_RESULT_TYPE_GO = "go";
 
-    public static final int ACTION_RESULT_TYPE_SANITY = -23;
-    public static final int RESULT_SANITY_SMALL = 8;
-    public static final int RESULT_SANITY_NORM = 24;
-    public static final int RESULT_SANITY_HIGH = 35;
+    public static final String ACTION_RESULT_TYPE_HP = "hp";
+    public static final String RESULT_HP_SMALL = "small";
+    public static final String RESULT_HP_NORM = "normal";
+    public static final String RESULT_HP_HIGH = "high";
 
-    public static final int ACTION_RESULT_TYPE_ITEM = -24;
-    public static final int ACTION_RESULT_TYPE_ENEMY = -25;
-    public static final int ACTION_RESULT_TYPE_STORY = -26;
+    public static  enum RESULT_HP{
+        small,medium,high
+    }
+
+    public static final String ACTION_RESULT_TYPE_SANITY = "sanity";
+    public static final String RESULT_SANITY_SMALL = "small";
+    public static final String RESULT_SANITY_NORM = "normal";
+    public static final String RESULT_SANITY_HIGH = "high";
+
+    public static final String ACTION_RESULT_TYPE_ITEM = "item";
+    public static final String ACTION_RESULT_TYPE_ENEMY = "enemy";
+    public static final String ACTION_RESULT_TYPE_STORY = "story";
+    public static final String ACTION_RESULT_TYPE_LIGHT = "light";
+    public static final String ACTION_RESULT_TYPE_MAP   = "map";
 
 
     // типы условий на срабатывания того или иного действия
-    public static final int ACTION_CONDITION_TYPE_COMMON = -43;
+    public static final String ACTION_CONDITION_TYPE_COMMON = "common";
 
-    public static final int ACTION_CONDITION_TYPE_HP = -44;
+    public static final String ACTION_CONDITION_TYPE_HP = "hp";
 
-    public static final int ACTION_CONDITION_TYPE_SANITY = -45;
+    public static final String ACTION_CONDITION_TYPE_SANITY = "sanity";
 
-    public static final int ACTION_CONDITION_TYPE_CLASS = -46;
+    public static final String ACTION_CONDITION_TYPE_CLASS = "class";
 
-    public static final int ACTION_CONDITION_TYPE_ITEM = -47;
+    public static final String ACTION_CONDITION_TYPE_ITEM = "item";
 
-
+    public static final String ACTION_CONDITION_TYPE_LIGHT = "light";
 }
