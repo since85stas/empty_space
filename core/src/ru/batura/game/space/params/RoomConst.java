@@ -9,6 +9,7 @@ public final class RoomConst {
     public static final int CONDITION_KNOWN = 34;
     public static final int CONDITION_VISITED = 35;
     public static final int CONDITION_NEAR = 36;
+    public static final int CONDITION_CURRENT = 37;
 
     // обознач путей
     public static final int PATH_LEFT  = -1;

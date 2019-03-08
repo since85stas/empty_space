@@ -1,11 +1,14 @@
 package ru.batura.game.space.map;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import ru.batura.game.space.utils.Assets;
 import static  ru.batura.game.space.params.RoomConst.*;
 
 public class Map {
+
+    private static final String TAG = Map.class.getName().toString();
 
     int fieldDimension ;
     int roomWidth;
@@ -49,6 +52,7 @@ public class Map {
                 if (j != fieldDimension -1) {
                     room.pathUp = true;
                 }
+
                 room.roomCondition = CONDITION_UNKNOWN;
                 rooms[i][j] = room;
 
@@ -76,24 +80,24 @@ public class Map {
                         roomWidth);
                 if (room.isHeroHere) {
                     batch.draw(Assets.instance.blueBallAssets.texture,
-                            position.x,
-                            position.y,
+                            room.position.x,
+                            room.position.y,
                             roomWidth/2,
                             roomWidth/2);
                 }
 
                 if (room.roomCondition == CONDITION_UNKNOWN) {
                     batch.draw(Assets.instance.lockAssets.texture,
-                            position.x,
-                            position.y,
+                            room.position.x,
+                            room.position.y,
                             roomWidth/2,
                             roomWidth/2);
                 }
 
-                if (room.roomCondition == CONDITION_NEAR) {
+                if (room.isNearRoom) {
                     batch.draw(Assets.instance.starAssets.texture,
-                            position.x,
-                            position.y,
+                            room.position.x,
+                            room.position.y,
                             roomWidth/2,
                             roomWidth/2);
                 }
@@ -103,9 +107,33 @@ public class Map {
 
     public void setHeroInRoom(int i, int j) {
         rooms[i][j].isHeroHere = true;
+        rooms[i][j].roomCondition = CONDITION_CURRENT;
+        findNearestRooms();
     }
 
     public void findNearestRooms() {
+        int curPosI =0;
+        int curPosJ =0;
+        for (int i = 0; i < fieldDimension; i++) {
+            for (int j = 0; j < fieldDimension; j++) {
+                Room room = rooms[i][j];
+                if (room.isHeroHere) {
+                    curPosI = i;
+                    curPosJ = j;
+                }
+            }
+        }
+
+        Room room = rooms[curPosI][curPosJ];
+        try {
+            if (room.pathLeft) rooms[curPosI-1][curPosJ].isNearRoom = true;
+            if (room.pathRight) rooms[curPosI+1][curPosJ].isNearRoom = true;
+            if (room.pathDown) rooms[curPosI][curPosJ-1].isNearRoom = true;
+            if (room.pathUp) rooms[curPosI][curPosJ+1].isNearRoom = true;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Gdx.app.log(TAG,"exc" + e);
+        }
+
 
     }
 

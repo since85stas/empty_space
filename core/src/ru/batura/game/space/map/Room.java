@@ -18,6 +18,7 @@ public class Room {
     // переменные еняющиеся во время игры
     public boolean isHeroHere;
     public boolean isMonsterHere;
+    public boolean isNearRoom;
 
     public Room (Vector2 position, String name, String description) {
         this.position = position;
