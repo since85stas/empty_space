@@ -3,7 +3,7 @@ package ru.batura.game.space.params;
 public final class Constants {
 
     // константы для шрифтов
-    public static final float FONT_SMALL = 0.02f;
+    public static final float FONT_SMALL = 0.03f;
     public static final float FONT_NORMAL = 0.05f;
 
     // разное

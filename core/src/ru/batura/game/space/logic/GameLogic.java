@@ -19,7 +19,11 @@ public class GameLogic {
     }
 
     public void startGame() {
-        screen.map.setHeroInRoom(1,3);
+        screen.map.setHeroInRoom(0,2);
+    }
+
+    public void enterRoom(int i , int j) {
+//        screen.map.enterNearRoom();
     }
 
     public void heroMove() {

@@ -1,0 +1,30 @@
+{
+  "RoomDescr": [
+    {
+      "name": "крио комната",
+      "descr": "simple cryogenic room",
+      "enterText": "You are waking up in halfdarkness...",
+      "action": [
+        {
+          "descr": "descr11"
+        },
+        {
+          "descr": "descr12"
+        }
+      ]
+    },
+    {
+      "name": "corridor",
+      "descr": "simple corridor",
+      "enterText": "You are waking in the corridor...",
+      "action": [
+        {
+          "descr": "descr21"
+        },
+        {
+          "descr": "descr22"
+        }
+      ]
+    }
+  ]
+}

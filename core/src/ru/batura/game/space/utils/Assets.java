@@ -33,7 +33,7 @@ import javax.xml.soap.Text;
  * Created by seeyo on 03.12.2018.
  */
 
-public class Assets implements Disposable, AssetErrorListener {
+public final class Assets implements Disposable, AssetErrorListener {
 
     public static final String TAG = Assets.class.getName();
     public static final Assets instance = new Assets();
@@ -174,18 +174,21 @@ public class Assets implements Disposable, AssetErrorListener {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         java.util.Map<String,BitmapFont> fontsByName = new HashMap<String,BitmapFont>();
         FreeTypeFontGenerator.FreeTypeFontParameter param = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
+        param.borderColor = Color.BLACK;
+        param.borderWidth = 0.5f;
+        param.shadowOffsetX = 1;
+        param.shadowOffsetY = -1;
+        param.shadowColor = Color.BLACK;
+        float ppi = Gdx.graphics.getPpiY();
+        param.size = (int)(Gdx.graphics.getHeight() *Constants.FONT_SMALL);
+        fontsByName.put( "small-font", generator.generateFont( param ));
+
         param.borderColor = Color.BLACK;
         param.borderWidth = 2;
         param.shadowOffsetX = 3;
         param.shadowOffsetY = -3;
         param.shadowColor = Color.BLACK;
-        float ppi = Gdx.graphics.getPpiY();
-//        param.size = Math.round( ppi / 2);
-
-
-        param.size = (int)(Gdx.graphics.getHeight() *Constants.FONT_SMALL);
-        fontsByName.put( "small-font", generator.generateFont( param ));
-
         param.size = (int)(Gdx.graphics.getHeight() *Constants.FONT_NORMAL);
         fontsByName.put( "main-font", generator.generateFont( param ));
 
